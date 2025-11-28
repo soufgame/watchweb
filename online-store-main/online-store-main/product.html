@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détails du Produit - orabella</title>
+    <link rel="stylesheet" href="./assets/Css/normalize.css" />
+    <link rel="stylesheet" href="./assets/Css/main.css" />
+    <link rel="stylesheet" href="./assets/Css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .product-details {
+        padding: 80px 0;
+        min-height: 100vh;
+      }
+
+      .product-details .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .product-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+
+      .product-images {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .main-image {
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      }
+
+      .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .main-image img:hover {
+        transform: scale(1.05);
+      }
+
+      .thumbnail-images {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+
+      .thumbnail {
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .thumbnail:hover {
+        border-color: #088178;
+      }
+
+      .thumbnail.active {
+        border-color: #088178;
+        box-shadow: 0 0 10px rgba(8, 129, 120, 0.3);
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .product-info .brand {
+        color: #088178;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .product-info h1 {
+        font-size: 36px;
+        color: #222;
+        margin: 0;
+      }
+
+      .product-info .price {
+        font-size: 32px;
+        color: #088178;
+        font-weight: bold;
+      }
+
+      .product-info .description {
+        color: #666;
+        line-height: 1.8;
+        font-size: 16px;
+      }
+
+      .product-info .rate {
+        display: flex;
+        gap: 5px;
+        color: #ffc107;
+        font-size: 18px;
+      }
+
+      .buy-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        padding: 15px 40px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .btn-whatsapp {
+        background-color: #25D366;
+        color: white;
+        flex: 1;
+      }
+
+      .btn-whatsapp:hover {
+        background-color: #20ba5a;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      }
+
+      .btn-cart {
+        background-color: #088178;
+        color: white;
+        flex: 1;
+      }
+
+      .btn-cart:hover {
+        background-color: #066d64;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(8, 129, 120, 0.3);
+      }
+
+      .btn i {
+        font-size: 20px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #088178;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        gap: 12px;
+        color: #066d64;
+      }
+
+      .product-features {
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .product-features h3 {
+        margin-bottom: 15px;
+        color: #222;
+      }
+
+      .product-features ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .product-features li {
+        padding: 8px 0;
+        color: #666;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .product-features li i {
+        color: #088178;
+      }
+
+      @media (max-width: 768px) {
+        .product-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .main-image {
+          height: 350px;
+        }
+
+        .thumbnail-images {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+        }
+
+        .thumbnail {
+          height: 80px;
+        }
+
+        .product-info h1 {
+          font-size: 28px;
+        }
+
+        .buy-buttons {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Start Header -->
+    <div class="header">
+      <div class="container">
+        <a href="./index.html" class="logo">orabellas</a>
+        <div class="nav">
+          <ul class="nav-links" id="nav-links">
+            <li><a href="./index.html">Accueil</a></li>
+            <li><a href="./about.html">À propos</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <div class="icon" id="toggle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div class="cart" id="cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Start Product Details -->
+    <div class="product-details">
+      <div class="container">
+        <a href="./index.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la boutique
+        </a>
+
+        <div class="product-content" id="productContent">
+          <!-- Le contenu sera inséré ici par JavaScript -->
+        </div>
+      </div>
+    </div>
+    <!-- End Product Details -->
+
+    <!-- Start footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="contact">
+          <a href="" class="logo">orabella</a>
+          <div class="info">
+            <h4>Contact</h4>
+            <p><span>Adresse:</span> 10 Rue du Luxe, Paris</p>
+            <p><span>Téléphone:</span> +33 1 42 68 53 01</p>
+            <p><span>Email:</span> contact@timelux.com</p>
+          </div>
+          <div class="follow">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+
+        <div class="box">
+          <h4>À propos</h4>
+          <ul class="menu">
+            <li><a href="">Notre Histoire</a></li>
+            <li><a href="">Livraison & Retours</a></li>
+            <li><a href="">Politique de Confidentialité</a></li>
+            <li><a href="">Conditions Générales</a></li>
+            <li><a href="">Nous Contacter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End footer -->
+
+    <script src="./assets/Js/all.min.js"></script>
+    <script src="./assets/Js/app.js"></script>
+    
+    <script>
+      // Récupérer l'ID du produit depuis l'URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+
+      // Récupérer les données des produits
+      const productsData = JSON.parse(localStorage.getItem('productsData'));
+
+      if (productId && productsData && productsData[productId]) {
+        const product = productsData[productId];
+        displayProduct(product);
+      } else {
+        // Rediriger vers l'accueil si produit non trouvé
+        window.location.href = './index.html';
+      }
+
+      function displayProduct(product) {
+        const productContent = document.getElementById('productContent');
+        
+        // Créer les thumbnails HTML
+        const thumbnailsHTML = product.images.map((img, index) => `
+          <div class="thumbnail ${index === 0 ? 'active' : ''}" data-image="${img}">
+            <img src="${img}" alt="${product.name} - Image ${index + 1}" />
+          </div>
+        `).join('');
+
+        // Créer le HTML complet
+        productContent.innerHTML = `
+          <div class="product-images">
+            <div class="main-image">
+              <img src="${product.images[0]}" alt="${product.name}" id="mainImage" />
+            </div>
+            <div class="thumbnail-images">
+              ${thumbnailsHTML}
+            </div>
+          </div>
+
+          <div class="product-info">
+            <span class="brand">${product.brand}</span>
+            <h1>${product.name}</h1>
+            <div class="rate">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="price">${product.price}</div>
+            <p class="description">${product.description}</p>
+
+            <div class="product-features">
+              <h3>Caractéristiques</h3>
+              <ul>
+                <li><i class="fa-solid fa-check"></i> Garantie 2 ans</li>
+                <li><i class="fa-solid fa-check"></i> Livraison gratuite</li>
+                <li><i class="fa-solid fa-check"></i> Retour sous 30 jours</li>
+                <li><i class="fa-solid fa-check"></i> Service client premium</li>
+                <li><i class="fa-solid fa-check"></i> Emballage cadeau offert</li>
+              </ul>
+            </div>
+
+            <div class="buy-buttons">
+              <button class="btn btn-whatsapp" id="whatsappBtn">
+                <i class="fa-brands fa-whatsapp"></i>
+                Commander sur WhatsApp
+              </button>
+             
+            </div>
+          </div>
+        `;
+
+        // Ajouter les événements après l'insertion du HTML
+        setupImageGallery();
+        setupWhatsAppButton(product);
+      }
+
+      function setupImageGallery() {
+        const mainImage = document.getElementById('mainImage');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        thumbnails.forEach(thumbnail => {
+          thumbnail.addEventListener('click', function() {
+            // Retirer la classe active de tous les thumbnails
+            thumbnails.forEach(t => t.classList.remove('active'));
+            
+            // Ajouter la classe active au thumbnail cliqué
+            this.classList.add('active');
+            
+            // Changer l'image principale
+            const newImageSrc = this.getAttribute('data-image');
+            mainImage.src = newImageSrc;
+            
+            // Animation de transition
+            mainImage.style.opacity = '0';
+            setTimeout(() => {
+              mainImage.style.opacity = '1';
+            }, 100);
+          });
+        });
+      }
+
+      function setupWhatsAppButton(product) {
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        const mainImage = document.getElementById('mainImage');
+        
+        whatsappBtn.addEventListener('click', function() {
+          // Numéro WhatsApp (remplacez par votre numéro)
+          const phoneNumber = '212600000000'; // Format: code pays + numéro sans +
+          
+          // Message à envoyer
+          const message = `Bonjour! 🌟
+
+Je veux ce produit:
+
+📦 *${product.name}*
+🏷️ Marque: ${product.brand}
+💰 Prix: ${product.price}
+
+Voici l'image du produit que je souhaite commander.
+
+Merci!`;
+
+          // Encoder le message pour l'URL
+          const encodedMessage = encodeURIComponent(message);
+          
+          // Créer l'URL WhatsApp
+          const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+          
+          // Ouvrir WhatsApp dans un nouvel onglet
+          window.open(whatsappURL, '_blank');
+        });
+      }
+    </script>
+  </body>
+</html>
