@@ -220,14 +220,11 @@ h1, h2, h3, h4 {
     display: block !important;
   }
 }
-/*.landing {
-  height: 100vh;
-  background: url("../images/hero.png");
-  background-size: cover;
-}*/
+
+
 .landing {
   height: 100vh;
-  background: url("../images/hero.png");
+  background: url("../images/v11.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
