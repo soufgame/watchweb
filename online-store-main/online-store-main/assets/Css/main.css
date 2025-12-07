@@ -223,11 +223,53 @@ h1, h2, h3, h4 {
 
 
 .landing {
-  height: 100vh;
-  background: url("../images/v11.png");
+  min-height: 100vh;
+  background: url("../images/v12.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+  .landing {
+    background-position: right center;
+    padding: 15px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+  .landing {
+    min-height: 100vh;
+    background-position: 70% center; /* Garde l'homme visible */
+    background-size: cover;
+    background-attachment: scroll;
+    padding: 20px 15px;
+    position: relative;
+  }
+  
+  .landing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3); /* Overlay blanc semi-transparent */
+    pointer-events: none;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 375px) {
+  .landing {
+    background-position: 65% center;
+    padding: 15px 10px;
+  }
 }
 .landing .container {
   height: 100%;
