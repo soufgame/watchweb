@@ -402,17 +402,19 @@
           });
         });
       }
-
       function setupWhatsAppButton(product) {
-        const whatsappBtn = document.getElementById('whatsappBtn');
-        const mainImage = document.getElementById('mainImage');
-        
-        whatsappBtn.addEventListener('click', function() {
-          // Numéro WhatsApp (remplacez par votre numéro)
-          const phoneNumber = '212600000000'; // Format: code pays + numéro sans +
-          
-          // Message à envoyer
-          const message = `Bonjour! 🌟
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const mainImage = document.getElementById('mainImage');
+  
+  whatsappBtn.addEventListener('click', function() {
+    // Numéro WhatsApp
+    const phoneNumber = '212600000000';
+
+    // Récupérer l'image actuellement affichée
+    const selectedImage = mainImage.src;
+
+    // Message WhatsApp
+    const message = `Bonjour! 🌟
 
 Je veux ce produit:
 
@@ -420,20 +422,24 @@ Je veux ce produit:
 🏷️ Marque: ${product.brand}
 💰 Prix: ${product.price}
 
-Voici l'image du produit que je souhaite commander.
+Voici l'image exacte que je souhaite commander :
+${selectedImage}
 
 Merci!`;
 
-          // Encoder le message pour l'URL
-          const encodedMessage = encodeURIComponent(message);
-          
-          // Créer l'URL WhatsApp
-          const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-          
-          // Ouvrir WhatsApp dans un nouvel onglet
-          window.open(whatsappURL, '_blank');
-        });
-      }
+    // Encoder
+    const encodedMessage = encodeURIComponent(message);
+
+    // Lien WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Ouvrir WhatsApp
+    window.open(whatsappURL, '_blank');
+  });
+}
+
+
+ 
     </script>
   </body>
 </html>
