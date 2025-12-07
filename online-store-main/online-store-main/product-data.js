@@ -1,18 +1,17 @@
 // Base de données complète des produits
-// Placez ce fichier dans ./assets/Js/products-data.js
 
 const productsDatabase = {
   1: {
     id: 1,
     name: "Montre Classique",
     brand: "Rolex",
-    price: "180 MAD",
+    price: "200 MAD",
     description: "Montre classique pour homme, élégante et intemporelle. Parfaite pour toutes les occasions professionnelles et décontractées.",
     images: [
        "./assets/images/montre/v1/1.jpg",
-            "./assets/images/montre/v1/2.jpg",
-            "./assets/images/montre/v1/3.jpg",
-            "./assets/images/montre/v1/4.jpg",
+            "./assets/images/montre/Rolex v1/1.jpg",
+            "./assets/images/montre/Rolex v1/2.jpg",
+            "./assets/images/montre/Rolex v1/3.jpg",
     ]
   },
   2: {
@@ -55,29 +54,7 @@ const productsDatabase = {
             "./assets/images/montre/v4/3.jpg",
     ]
   },
-  5: {
-    id: 5,
-    name: "Montre Prestige",
-    brand: "Patek Philippe",
-    price: "180 MAD",
-    description: "Montre de prestige en or, symbole d'élégance et de raffinement absolu. Pour ceux qui recherchent l'excellence horlogère.",
-    images: [
-     "./assets/images/montre/v5/1.jpg",
-            "./assets/images/montre/v5/2.jpg",
-            "./assets/images/montre/v5/3.jpg",
-    ]
-  },
-  6: {
-    id: 6,
-    name: "Montre Royal",
-    brand: "Audemars Piguet",
-    price: "180 MAD",
-    description: "Montre royale alliant sport et élégance, pour une présence remarquable. Un chef-d'œuvre de haute horlogerie.",
-    images: [
-      "./assets/images/montre/v6/1.jpg",
-            "./assets/images/montre/v6/2.jpg",
-    ]
-  }
+  
 };
 
 // Sauvegarder dans localStorage au chargement de la page

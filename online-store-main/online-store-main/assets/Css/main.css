@@ -343,6 +343,10 @@ h1, h2, h3, h4 {
   color: #ffc107;
   margin-bottom: 5px;
 }
+.features-products .container .product .content .colors {
+    color: #ffc107;
+    margin-bottom: 9px;
+}
 .features-products .container .product .content .price {
   font-size: 20px;
   color: var(--mainColor);
